@@ -9,6 +9,17 @@ for (let typeName in React.PropTypes) {
   PropTypesMap.set(type, typeName);
 }
 
+const stylesheet = {
+  propTable: {
+    th: {
+      padding: 10
+    },
+    td: {
+      padding: 10 
+    }
+  }
+}
+
 export default class PropTable extends React.Component {
   render () {
     const type = this.props.type;
@@ -60,19 +71,19 @@ export default class PropTable extends React.Component {
       <table>
         <thead>
           <tr>
-            <th>property</th>
-            <th>propType</th>
-            <th>required</th>
-            <th>default</th>
+            <th style={stylesheet.propTable.th}>property</th>
+            <th style={stylesheet.propTable.th}>propType</th>
+            <th style={stylesheet.propTable.th}>required</th>
+            <th style={stylesheet.propTable.th}>default</th>
           </tr>
         </thead>
         <tbody>
           {array.map(row => (
             <tr key={row.property}>
-              <td>{row.property}</td>
-              <td>{row.propType}</td>
-              <td>{row.required}</td>
-              <td>{row.defaultValue.toString()}</td>
+              <td style={stylesheet.propTable.td}>{row.property}</td>
+              <td style={stylesheet.propTable.td}>{row.propType}</td>
+              <td style={stylesheet.propTable.td}>{row.required}</td>
+              <td style={stylesheet.propTable.td}>{row.defaultValue.toString()}</td>
             </tr>
           ))}
         </tbody>
